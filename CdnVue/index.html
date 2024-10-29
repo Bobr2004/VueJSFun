@@ -3,18 +3,31 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="styles.css" />
       <title>Document</title>
    </head>
    <body>
       <div id="root">
-         <div>
+         <div class="guiBox">
             <input type="text" v-model="inputVal" />
-            <button v-on:click="addTodo">Add</button>
+            <button @click="addTodo">Add</button>
+            <button @click="increment">{{count}}</button>
+            <button @click="decrement">{{count}}</button>
+            <button @click="addNumber(10)()">{{count}}</button>
          </div>
-         <ul>
-            <li v-for="todo in todos">{{ todo }}</li>
+         <p style="margin: 1rem 0;">Todos Length: {{todosLength}}</p>
+
+         <ul class="list">
+            <li
+               v-for="(todo, i) in todos"
+               :class="{active: activeTodo === i}"
+               @click="toggle(i)"
+            >
+               {{i}}:{{ todo }}
+            </li>
          </ul>
       </div>
+
       <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
       <script src="app.js"></script>
    </body>
