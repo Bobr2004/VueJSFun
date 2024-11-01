@@ -1,47 +1,52 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script>
+export default {
+   data() {
+      return {
+         greeting: "hello niggers",
+         status: false,
+         codeword: "",
+         list: [1,2,3]
+      };
+   },
+
+   computed:{
+      inputStatus(){
+        console.log("yoo")
+        if (this.codeword === "nigger") return "true"
+        if (this.codeword === "whiteboy") return "false"
+        return ""
+      }
+   },
+
+   methods: {
+      showMeTheTruth() {
+         this.status = !this.status;
+      }
+   }
+};
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+   <h1>{{ greeting }}</h1>
+   <button @click="showMeTheTruth" class="outline">oleg</button>
+   <p v-if="status">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius in quos amet
+      facere deleniti earum nam, quibusdam nostrum accusantium recusandae!
+   </p>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+   <input type="text" v-model="codeword" :aria-invalid="inputStatus">
+   <p v-if="codeword==='nigga'">Seriously??</p>
+   <p v-else-if="codeword==='niggaYey'">Seriously??????</p>
+   <p v-else>Okay</p>
 
-  <main>
-    <TheWelcome />
-  </main>
+
+   <h3>v-for</h3>
+   <ul>
+    <li v-for="(item, index) of list">{{item}} {{index}} : {{list}}</li>
+   </ul>
+
+   <h3>v-for in range</h3>
+   <ul>
+    <li v-for="_,i of 10" :key="i" :penis="status">{{i}}</li>
+   </ul>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
