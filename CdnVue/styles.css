@@ -48,6 +48,7 @@ input, button {
 .list li {
    padding: 0.5rem;
    border: 1px dashed #fff;
+   cursor: pointer;
 }
 
 
